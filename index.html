@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HamiWork — حامد | نمونه‌کار و مدارک</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ---------- فونت و ریست ---------- */
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    
+    :root {
+      --primary: #06b6d4;
+      --primary-dark: #0891b2;
+      --secondary: #7c3aed;
+      --secondary-dark: #6d28d9;
+      --bg-dark: #0f1724;
+      --bg-card: #071021;
+      --bg-card-light: rgba(255, 255, 255, 0.03);
+      --text-light: #e6eef6;
+      --text-muted: #9fb0c6;
+      --accent: #7ea9bf;
+      --success: #10b981;
+      --border: rgba(255, 255, 255, 0.05);
+      --shadow: rgba(2, 6, 23, 0.6);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    html, body {
+      height: 100%;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      direction: rtl;
+      scroll-behavior: smooth;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    /* ---------- اسکرول بار ---------- */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: var(--bg-card);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    
+    /* ---------- ظرف کلی ---------- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .card {
+      background: linear-gradient(180deg, var(--bg-card) 0%, #091324 100%);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 15px 50px var(--shadow);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    
+    /* ---------- هدر ---------- */
+    .header {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 42px;
+      color: white;
+      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+      position: relative;
+      z-index: 1;
+      transition: transform 0.5s ease;
+    }
+    
+    .avatar:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+    
+    .avatar::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      z-index: -1;
+      opacity: 0.5;
+      filter: blur(10px);
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    p.lead {
+      margin: 10px 0 0;
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+    
+    /* ---------- دکمه ها ---------- */
+    .links {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 12px;
+    }
+    
+    .btn {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--bg-card-light);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(6, 182, 212, 0.1), rgba(124, 58, 237, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(3, 10, 25, 0.7);
+      border-color: rgba(6, 182, 212, 0.3);
+    }
+    
+    .btn:hover::before {
+      opacity: 1;
+    }
+    
+    .btn i {
+      font-size: 18px;
+      width: 20px;
+      text-align: center;
+    }
+    
+    .tag {
+      font-weight: 700;
+    }
+    
+    /* ---------- بخش ها ---------- */
+    .section {
+      margin-top: 30px;
+      position: relative;
+    }
+    
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+    
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    
+    .two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .card-light {
+      background: var(--bg-card-light);
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card-light::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .card-light:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(3, 10, 25, 0.5);
+    }
+    
+    .card-light:hover::before {
+      opacity: 1;
+    }
+    
+    .small {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    
+    footer {
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 14px;
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    
+    /* ---------- بج ها ---------- */
+    .badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: var(--bg-card-light);
+      font-size: 14px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    
+    .badge:hover {
+      background: rgba(6, 182, 212, 0.1);
+      transform: translateY(-3px);
+    }
+    
+    .meta {
+      color: var(--accent);
+      font-size: 14px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .meta a {
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    .meta a:hover {
+      text-decoration: underline;
+    }
+    
+    .center {
+      text-align: center;
+    }
+    
+    /* ---------- انیمیشن‌ها ---------- */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+    
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+    
+    /* ---------- ریسپانسیو ---------- */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      
+      .avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 36px;
+      }
+      
+      h1 {
+        font-size: 24px;
+      }
+      
+      .grid.two, .grid.three {
+        grid-template-columns: 1fr;
+      }
+      
+      .links {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .grid.three {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1025px) {
+      .links {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    /* ---------- استایل اضافی ---------- */
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 15px;
+      background: var(--bg-card-light);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-item:hover {
+      background: rgba(6, 182, 212, 0.05);
+      transform: translateX(-5px);
+    }
+    
+    .contact-item i {
+      font-size: 20px;
+      color: var(--primary);
+      width: 24px;
+      text-align: center;
+    }
+    
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 25px 0;
+      text-align: center;
+    }
+    
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <!-- هدر -->
+      <div class="header fade-in">
+        <div class="avatar">H</div>
+        <div style="flex:1">
+          <h1>حامد — HamiWork</h1>
+          <p class="lead">دانشجوی اقتصاد · تحلیلگر اقتصاد کلان و تاریخ اندیشه‌های اقتصادی<br>خدمات: داشبورد اکسل · پاورپوینت · گزارش‌نویسی</p>
+          
+          <!-- آمار -->
+          <div class="stats fade-in delay-1">
+            <div class="stat-item">
+              <div class="stat-value">25+</div>
+              <div class="stat-label">پروژه انجام شده</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">98%</div>
+              <div class="stat-label">رضایت مشتری</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">3+</div>
+              <div class="stat-label">سال تجربه</div>
+            </div>
+          </div>
+
+          <div class="links fade-in delay-2">
+            <a class="btn" href="#portfolio">
+              <i class="fas fa-folder-open"></i>
+              <span>نمونه‌کارها</span>
+            </a>
+            <a class="btn" href="#certs">
+              <i class="fas fa-graduation-cap"></i>
+              <span>مدارک و گواهی‌ها</span>
+            </a>
+            <a class="btn" href="https://t.me/HamiWorkHQ" target="_blank" rel="noopener">
+              <i class="fab fa-telegram"></i>
+              <span>کانال تلگرام</span>
+            </a>
+            <a class="btn" href="mailto:your@email.com">
+              <i class="fas fa-envelope"></i>
+              <span>ایمیل</span>
+            </a>
+            <a class="btn" href="https://x.com/HamedIdeas" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+              <span>X / توییتر</span>
+            </a>
+            <a class="btn" href="#contact">
+              <i class="fas fa-paper-plane"></i>
+              <span>سفارش / تماس</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- خلاصه خدمات -->
+      <div class="section fade-in delay-1">
+        <h3 class="section-title">خدمات تخصصی</h3>
+        <div class="badges">
+          <div class="badge">
+            <i class="fas fa-chart-bar"></i>
+            <span>داشبورد اکسل</span>
+          </div>
+          <div class="badge">
+            <i class="fas fa-file-alt"></i>
+            <span>گزارش‌نویسی</span>
+          </div>
+          <div class="badge">
+            <i class="fas fa-desktop"></i>
+            <span>ارائه و پاورپوینت</span>
+          </div>
+          <div class="badge">
+            <i class="fas fa-database"></i>
+            <span>پاکسازی داده</span>
+          </div>
+          <div class="badge">
+            <i class="fas fa-chart-line"></i>
+            <span>تحلیل اقتصادی</span>
+          </div>
+          <div class="badge">
+            <i class="fas fa-search"></i>
+            <span>تحقیق و پژوهش</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- نمونه کارها -->
+      <div id="portfolio" class="section fade-in delay-2">
+        <h3 class="section-title">نمونه‌کارها</h3>
+        <div class="grid two">
+          <div class="card-light">
+            <div style="font-weight:700; font-size: 18px; margin-bottom: 8px;">
+              <i class="fas fa-file-powerpoint" style="color: var(--secondary); margin-left: 8px;"></i>
+              پاورپوینت — کاخ فین کاشان
+            </div>
+            <div class="small">۱۸ اسلاید · طراحی دانشگاهی · دانلود PDF</div>
+            <div class="meta">
+              <i class="fas fa-external-link-alt"></i>
+              <a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank">مشاهده / دانلود</a>
+            </div>
+          </div>
+
+          <div class="card-light">
+            <div style="font-weight:700; font-size: 18px; margin-bottom: 8px;">
+              <i class="fas fa-table" style="color: var(--success); margin-left: 8px;"></i>
+              داشبورد اکسل — فروشگاه نمونه
+            </div>
+            <div class="small">داشبورد مدیریتی · فرمول‌نویسی · نمودار پویا</div>
+            <div class="meta">
+              <i class="fas fa-external-link-alt"></i>
+              <a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank">مشاهده / دانلود</a>
+            </div>
+          </div>
+          
+          <div class="card-light">
+            <div style="font-weight:700; font-size: 18px; margin-bottom: 8px;">
+              <i class="fas fa-chart-pie" style="color: var(--primary); margin-left: 8px;"></i>
+              تحلیل بازار — صنعت خودرو
+            </div>
+            <div class="small">تحلیل داده‌های کلان · نمودارهای تعاملی · گزارش تحلیلی</div>
+            <div class="meta">
+              <i class="fas fa-external-link-alt"></i>
+              <a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank">مشاهده / دانلود</a>
+            </div>
+          </div>
+          
+          <div class="card-light">
+            <div style="font-weight:700; font-size: 18px; margin-bottom: 8px;">
+              <i class="fas fa-book" style="color: var(--accent); margin-left: 8px;"></i>
+              پژوهش — تاریخ اندیشه اقتصادی
+            </div>
+            <div class="small">مقاله علمی · منابع معتبر · تحلیل تطبیقی</div>
+            <div class="meta">
+              <i class="fas fa-external-link-alt"></i>
+              <a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank">مشاهده / دانلود</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- مدارک -->
+      <div id="certs" class="section fade-in delay-3">
+        <h3 class="section-title">مدارک و گواهی‌ها</h3>
+        <div class="grid two">
+          <div class="card-light">
+            <div style="font-weight:700; font-size: 18px; margin-bottom: 8px;">
+              <i class="fas fa-certificate" style="color: gold; margin-left: 8px;"></i>
+              دوره اکسل پیشرفته — مؤسسه مثال
+            </div>
+            <div class="small">تاریخ: ۱۴۰۲ · گواهی PDF</div>
+            <div class="meta">
+              <i class="fas fa-external-link-alt"></i>
+              <a href="YOUR_CERT_LINK" target="_blank">مشاهده مدرک</a>
+            </div>
+          </div>
+          <div class="card-light">
+            <div style="font-weight:700; font-size: 18px; margin-bottom: 8px;">
+              <i class="fas fa-certificate" style="color: gold; margin-left: 8px;"></i>
+              گواهی زبان عمومی — مثال
+            </div>
+            <div class="small">تاریخ: ۱۴۰۱ · نمره: ۹۵ از ۱۰۰</div>
+            <div class="meta">
+              <i class="fas fa-external-link-alt"></i>
+              <a href="YOUR_CERT_LINK" target="_blank">مشاهده مدرک</a>
+            </div>
+          </div>
+          <div class="card-light">
+            <div style="font-weight:700; font-size: 18px; margin-bottom: 8px;">
+              <i class="fas fa-certificate" style="color: gold; margin-left: 8px;"></i>
+              تحلیل داده‌های اقتصادی — دانشگاه نمونه
+            </div>
+            <div class="small">تاریخ: ۱۴۰۰ · دوره تخصصی ۴۰ ساعته</div>
+            <div class="meta">
+              <i class="fas fa-external-link-alt"></i>
+              <a href="YOUR_CERT_LINK" target="_blank">مشاهده مدرک</a>
+            </div>
+          </div>
+          <div class="card-light">
+            <div style="font-weight:700; font-size: 18px; margin-bottom: 8px;">
+              <i class="fas fa-certificate" style="color: gold; margin-left: 8px;"></i>
+              ارائه مؤثر — مرکز مهارت‌آموزی
+            </div>
+            <div class="small">تاریخ: ۱۳۹۹ · مهارت‌های ارائه و سخنرانی</div>
+            <div class="meta">
+              <i class="fas fa-external-link-alt"></i>
+              <a href="YOUR_CERT_LINK" target="_blank">مشاهده مدرک</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- درباره -->
+      <div class="section fade-in delay-1">
+        <h3 class="section-title">درباره‌ام</h3>
+        <div class="card-light">
+          <div class="small" style="line-height: 1.8;">
+            <p>سلام، من <span class="highlight">حامد</span> هستم؛ دانشجوی اقتصاد و علاقه‌مند به تحلیل‌های کلان و تاریخ اندیشه اقتصادی.</p>
+            <p style="margin-top: 10px;">با بیش از ۳ سال تجربه در زمینه تحلیل داده، طراحی داشبوردهای مدیریتی و گزارش‌نویسی حرفه‌ای، پروژه‌های متعددی را با موفقیت به پایان رسانده‌ام. تخصص اصلی من در ایجاد راه‌حل‌های عملی برای مسائل اقتصادی و کسب‌وکارها است.</p>
+            <p style="margin-top: 10px;">در این صفحه نمونه‌کارها، مدارک و راه‌های ارتباطی‌ام را جمع‌آوری کردم. برای سفارش پروژه یا همکاری پیام دهید: <strong class="highlight">@itsHa3ed</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- تماس -->
+      <div id="contact" class="section fade-in delay-2">
+        <h3 class="section-title">تماس / سفارش</h3>
+        <div class="card-light">
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fab fa-telegram"></i>
+              <div>
+                <div style="font-weight: 600;">پیام در تلگرام</div>
+                <div class="small">سریع‌ترین راه برای ارتباط</div>
+              </div>
+              <a href="https://t.me/itsHa3ed" target="_blank" class="btn" style="margin-right: auto; padding: 8px 15px; font-size: 14px;">
+                ارسال پیام
+              </a>
+            </div>
+            
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <div style="font-weight: 600;">ایمیل</div>
+                <div class="small">برای پروژه‌های رسمی و طولانی‌مدت</div>
+              </div>
+              <a href="mailto:your@email.com" class="btn" style="margin-right: auto; padding: 8px 15px; font-size: 14px;">
+                ارسال ایمیل
+              </a>
+            </div>
+            
+            <div class="contact-item">
+              <i class="fas fa-comments"></i>
+              <div>
+                <div style="font-weight: 600;">مشاوره رایگان</div>
+                <div class="small">۱۵ دقیقه مشاوره رایگان برای پروژه شما</div>
+              </div>
+              <a href="https://calendly.com/your-link" target="_blank"
